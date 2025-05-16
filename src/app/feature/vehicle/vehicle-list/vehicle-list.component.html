@@ -1,0 +1,27 @@
+<div class="container">
+    <div class="row">
+        <div class="col-3 text-start mt-4">
+            <button type="button" class="btn btn-secondary" (click)="openAddDialog()"> + Add new vehicle</button>
+        </div>
+        <div class="col-6 text-center">
+            <h1 class="heading mt-4">Vehicle List</h1>
+        </div>
+    </div>
+    
+    <div class="vehicle-list mt-4">
+        <div class="success" *ngIf="successMsg">{{ successMsg }}</div>
+        <ng-container *ngIf="vehicleList$ | async as vehicleList; else loadingDiv">
+            <div *ngIf="vehicleList.length > 0; else noVehicleDiv" class="row">
+                <div class="col-md-3 p-2" *ngFor="let vehicle of vehicleList">
+                    <app-vehicle-item [vehicleData]="vehicle"></app-vehicle-item>
+                </div>
+            </div>
+        </ng-container>
+        <ng-template #noVehicleDiv>
+            <div class="no-vehicle-div">No Vechicles Available</div>
+        </ng-template> 
+    </div>
+    <ng-template #loadingDiv>
+        <div class="loading-div">Loading...</div>
+    </ng-template>
+</div>

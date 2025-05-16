@@ -1,0 +1,22 @@
+.container {
+  .heading {
+    color: navy;
+    text-align: center;
+  }
+
+  .no-vehicle-div {
+    text-align: center;
+    margin-top: 20px;
+  }
+  
+  .loading-div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 400px;
+  }
+
+  .success {
+    color: green;
+  }
+}

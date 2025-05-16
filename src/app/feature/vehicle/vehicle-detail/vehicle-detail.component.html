@@ -1,0 +1,64 @@
+<div class="container">
+    <ng-container *ngIf="!loading">
+        <div class="row mb-4 mt-4">
+            <div class="col-2 text-start">
+                <a class="back-btn mt-2" (click)="redirectBack()">Back</a>
+            </div>
+            <div class="col-8 text-center">
+                <h1 class="heading">Vehicle details : {{ vehicleDetail.name }}</h1>
+            </div>
+        </div>
+    
+        <div class="col-12 mt-4 d-flex justify-content-center" *ngIf="vehicleDetail; else emptyVehicleDetail">
+            <ul class="list-group">
+                <li class="list-group-item p-3">
+                    <div class="row">
+                        <div class="col-6 fw-bold">Manufacturer</div>
+                        <div class="col-6 text-muted">{{ vehicleDetail.manufacturer }}</div>
+                    </div>
+                </li>
+                <li class="list-group-item p-3">
+                    <div class="row">
+                        <div class="col-6 fw-bold">Model</div>
+                        <div class="col-6 text-muted">{{ vehicleDetail.model }}</div>
+                    </div>
+                </li>
+                <li class="list-group-item p-3">
+                    <div class="row">
+                        <div class="col-6 fw-bold">Fuel</div>
+                        <div class="col-6 text-muted">{{ vehicleDetail.fuel }}</div>
+                    </div>
+                </li>
+                <li class="list-group-item p-3">
+                    <div class="row">
+                        <div class="col-6 fw-bold">Type</div>
+                        <div class="col-6 text-muted">{{ vehicleDetail.type }}</div>
+                    </div>
+                </li>
+                <li class="list-group-item p-3">
+                    <div class="row">
+                        <div class="col-6 fw-bold">VIN</div>
+                        <div class="col-6 text-muted">{{ vehicleDetail.vin }}</div>
+                    </div>
+                </li>
+                <li *ngIf="vehicleDetail.color" class="list-group-item p-3">
+                    <div class="row">
+                        <div class="col-6 fw-bold">Color</div>
+                        <div class="col-6 text-muted">{{ vehicleDetail.color }}</div>
+                    </div>
+                </li>
+                <li *ngIf="vehicleDetail.mileage" class="list-group-item p-3">
+                    <div class="row">
+                        <div class="col-6 fw-bold">Mileage</div>
+                        <div class="col-6 text-muted">{{ vehicleDetail.mileage }}</div>
+                    </div>
+                </li>
+            </ul>
+            
+        </div>
+        <ng-template #emptyVehicleDetail>
+            Unable to fetch vehicle details. Please try again later.
+        </ng-template>
+    </ng-container>
+    <div class="loading-div" *ngIf="loading">Loading...</div>
+</div>

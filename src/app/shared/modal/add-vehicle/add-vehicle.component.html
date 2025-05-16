@@ -1,0 +1,85 @@
+<div class="container">
+    <h2 class="heading mt-4">Add new vehicle</h2>
+    <form class="p-2" [formGroup]="vehicleForm">
+        <div class="row">
+            <div class="col-2"></div>
+            <div class="col-8">
+                <div class="row mb-2">
+                    <div class="col-6"><label>Vehicle Name</label></div>
+                    <div class="col-6">
+                        <input class="form-control" formControlName="name">
+                        <div *ngIf="vehicleForm.get('name')?.touched && vehicleForm.get('name')?.hasError('required')" class="error">
+                            Vehicle name is required
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="row mb-2">
+                    <div class="col-6"><label>Manufacturer</label></div>
+                    <div class="col-6">
+                        <input class="form-control" formControlName="manufacturer">
+                        <div *ngIf="vehicleForm.get('manufacturer')?.touched && vehicleForm.get('manufacturer')?.hasError('required')" class="error">
+                            Manufacturer is required
+                        </div>
+                    </div>
+                </div>
+                <div class="row mb-2">
+                    <div class="col-6"><label>Model</label></div>
+                    <div class="col-6">
+                        <input class="form-control" formControlName="model">
+                        <div *ngIf="vehicleForm.get('model')?.touched && vehicleForm.get('model')?.hasError('required')" class="error">
+                            Model is required
+                        </div>
+                    </div>
+                </div>
+                <div class="row mb-2">
+                    <div class="col-6"><label>Fuel</label></div>
+                    <div class="col-6">
+                        <input class="form-control" formControlName="fuel">
+                        <div *ngIf="vehicleForm.get('fuel')?.touched && vehicleForm.get('fuel')?.hasError('required')" class="error">
+                            Fuel is required
+                        </div>
+                    </div>
+                </div>
+                <div class="row mb-2">
+                    <div class="col-6"><label>type</label></div>
+                    <div class="col-6">
+                        <input class="form-control" formControlName="type">
+                        <div *ngIf="vehicleForm.get('type')?.touched && vehicleForm.get('type')?.hasError('required')" class="error">
+                            Type is required
+                        </div>
+                    </div>
+                </div>
+                <div class="row mb-2">
+                    <div class="col-6"><label>VIN</label></div>
+                    <div class="col-6">
+                        <input class="form-control" formControlName="vin">
+                        <div *ngIf="vehicleForm.get('vin')?.touched && vehicleForm.get('vin')?.hasError('required')" class="error">
+                            VIN is required
+                        </div>
+                    </div>
+                </div>
+                <div class="row mb-2">
+                    <div class="col-6"><label>Mileage</label></div>
+                    <div class="col-6">
+                        <input class="form-control" formControlName="mileage">
+                        <div *ngIf="vehicleForm.get('mileage')?.touched && vehicleForm.get('mileage')?.hasError('pattern')" class="error">
+                            Mileage should be a number
+                        </div>
+                    </div>
+                </div>
+                <div class="row mb-2">
+                    <div class="col-6"><label>Color</label></div>
+                    <div class="col-6">
+                        <input class="form-control" formControlName="color">
+                    </div>
+                </div>
+                <div class="row mt-4 mb-4 justify-content-center">
+                    <div *ngIf="error" class="error mb-2 text-center">{{ error }}</div>
+                    <div class="col-3"><button class="btn btn-secondary w-100" (click)="addVehicle()">Add</button></div>
+                    <div class="col-3"><button class="btn btn-secondary w-100" (click)="cancelDialog()">Cancel</button></div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>

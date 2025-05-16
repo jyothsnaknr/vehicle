@@ -1,0 +1,21 @@
+<div class="vehicle-item-container" (click)="openVehicleDetail(vehicleData.id)">
+    <div class="vehicle-item rounded ml-2">
+        <div class="vehicle-header rounded-top">
+            <div class="p-2">{{ vehicleData.name }}</div>
+        </div>
+        <div class="vehicle-detail p-2">
+            <div class="row">
+                <div class="col-6">Manufacturer : </div>
+                <div class="col-6">{{ vehicleData.manufacturer }}</div>
+            </div>
+            <div class="row">
+                <div class="col-6">Model : </div>
+                <div class="col-6">{{ vehicleData.model }}</div>
+            </div>
+            <div *ngIf="vehicleData.mileage" class="row">
+                <div class="col-6">Mileage : </div>
+                <div class="col-6">{{ vehicleData.mileage }}</div>
+            </div>
+        </div>
+    </div>
+</div>
