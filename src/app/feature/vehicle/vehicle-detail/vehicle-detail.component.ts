@@ -9,7 +9,7 @@ import { ActivatedRoute, Router } from '@angular/router';
   styleUrl: './vehicle-detail.component.scss'
 })
 export class VehicleDetailComponent implements OnInit {
-  public vehicleId: number = 0;
+  public vehicleId: string = '';
   public vehicleDetail: VehicleIntf = {} as VehicleIntf;
   public loading: boolean = true;
 
@@ -21,7 +21,7 @@ export class VehicleDetailComponent implements OnInit {
   }
 
   public ngOnInit(): void {
-    const vehicleId = Number(this.route.snapshot.paramMap.get('id'));
+    const vehicleId = this.route.snapshot.paramMap.get('id');
     if (vehicleId) {
       this.vehicleService.getVehicleDetails(vehicleId).subscribe({
         next: (data) => {

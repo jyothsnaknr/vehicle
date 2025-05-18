@@ -34,7 +34,7 @@ describe('VehicleService', () => {
   
   describe('getVehicleDetails', () => {
     it('should call get vehicle details api', () => {
-      service.getVehicleDetails(1).subscribe();
+      service.getVehicleDetails('1').subscribe();
       const httpReq = httpMock.expectOne('https://67d4273b8bca322cc26c5b38.mockapi.io/vehicles/1');
       expect(httpReq.request.method).toBe('GET');
     })

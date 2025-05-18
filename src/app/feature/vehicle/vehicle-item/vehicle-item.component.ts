@@ -15,6 +15,6 @@ export class VehicleItemComponent {
   }
 
   public openVehicleDetail(id: any): void {
-    this.router.navigate(['/vehicle-detail',id])
+    this.router.navigate(['/vehicles/detail',id])
   }
 }

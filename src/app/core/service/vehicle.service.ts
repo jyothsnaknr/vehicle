@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { VehicleIntf } from '../../models/vehicle';
-import { catchError, filter, map, Observable, of } from 'rxjs';
+import { catchError, map, Observable, of } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 
 @Injectable({
@@ -24,7 +24,7 @@ export class VehicleService {
   }
 
   // API to get individual vehicle details
-  public getVehicleDetails(vehicleId: number): Observable<VehicleIntf> {
+  public getVehicleDetails(vehicleId: string): Observable<VehicleIntf> {
     const vehicleListUrl = `${this.apiUrl}vehicles/${vehicleId}`;
     return this.http.get<VehicleIntf>(vehicleListUrl);
   }
