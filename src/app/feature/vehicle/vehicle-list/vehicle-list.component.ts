@@ -13,6 +13,7 @@ import { AddVehicleComponent } from '../../../shared/modal/add-vehicle/add-vehic
 export class VehicleListComponent implements OnInit {
   public successMsg: string = '';
   public vehicleList$: Observable<VehicleIntf[]> = of([]);
+  public page: number = 1;
 
   constructor(
     private vehicleService: VehicleService,

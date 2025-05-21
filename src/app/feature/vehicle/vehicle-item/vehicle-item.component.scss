@@ -10,7 +10,9 @@
     }
     
     .vehicle-item {
+        min-height: 150px;
         font-size: 12px;
         border: 1px solid lightgrey;
+        overflow-wrap: break-word;
     }
 }

@@ -12,9 +12,10 @@
         <div class="success" *ngIf="successMsg">{{ successMsg }}</div>
         <ng-container *ngIf="vehicleList$ | async as vehicleList; else loadingDiv">
             <div *ngIf="vehicleList.length > 0; else noVehicleDiv" class="row">
-                <div class="col-md-3 p-2" *ngFor="let vehicle of vehicleList">
+                <div class="col-md-3 p-2" *ngFor="let vehicle of vehicleList | paginate: {itemsPerPage:10, currentPage:page}">
                     <app-vehicle-item [vehicleData]="vehicle"></app-vehicle-item>
                 </div>
+                <pagination-controls class="paginate-class" (pageChange)="page = $event"></pagination-controls>
             </div>
         </ng-container>
         <ng-template #noVehicleDiv>

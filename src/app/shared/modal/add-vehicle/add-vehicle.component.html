@@ -66,6 +66,9 @@
                         <div *ngIf="vehicleForm.get('mileage')?.touched && vehicleForm.get('mileage')?.hasError('pattern')" class="error">
                             Mileage should be a number
                         </div>
+                        <div *ngIf="vehicleForm.get('mileage')?.touched && vehicleForm.get('mileage')?.hasError('min')" class="error">
+                            Mileage should be greater than zero
+                        </div>
                     </div>
                 </div>
                 <div class="row mb-2">

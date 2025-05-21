@@ -25,7 +25,7 @@ export class AddVehicleComponent {
       fuel: ['', Validators.required],
       type: ['', Validators.required],
       vin: ['', Validators.required],
-      mileage: ['', Validators.pattern(/^\d+$/)],
+      mileage: ['', [Validators.pattern(/^\d+$/), Validators.min(1)]],
       color: [''],
     });
   }
